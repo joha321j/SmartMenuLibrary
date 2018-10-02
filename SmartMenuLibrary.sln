@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMenuLibrary", "SmartMenuLibrary\SmartMenuLibrary.csproj", "{A044E8C0-9DD2-4F3B-9CF2-CE3D2288A4AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMenuTest", "UnitTestProject1\SmartMenuTest.csproj", "{D49815B4-88EB-47E7-8DB6-009080F051D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A044E8C0-9DD2-4F3B-9CF2-CE3D2288A4AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A044E8C0-9DD2-4F3B-9CF2-CE3D2288A4AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A044E8C0-9DD2-4F3B-9CF2-CE3D2288A4AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D49815B4-88EB-47E7-8DB6-009080F051D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D49815B4-88EB-47E7-8DB6-009080F051D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D49815B4-88EB-47E7-8DB6-009080F051D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D49815B4-88EB-47E7-8DB6-009080F051D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
