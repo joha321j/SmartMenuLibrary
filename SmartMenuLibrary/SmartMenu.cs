@@ -7,10 +7,7 @@ using System.IO;
 
 namespace SmartMenuLibrary
 {
-    interface IBindings
-    {
-        void Call(string callId);
-    }
+   
     public class SmartMenu
     {
         //Variables
@@ -58,7 +55,7 @@ namespace SmartMenuLibrary
             menuList.RemoveAt(0);
             return readFile;
         }
-        public void Activate()
+        public void Activate(IBindings bindings)
         {
             int userInput = 1;
 
@@ -84,9 +81,7 @@ namespace SmartMenuLibrary
                 }
                 if (userInput > 0)
                 {
-                        
-                   IBindings bindings = bindings;
-                   bindings.Call(menuId[userInput - 1]);
+                    bindings.Call(menuId[userInput - 1]);
                     Console.ReadKey();
                 }
             }
