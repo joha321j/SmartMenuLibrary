@@ -19,10 +19,11 @@ namespace SmartMenuLibrary
         List<string> menuList = new List<string>();
         List<string> menuId = new List<string>();
 
-        public void LoadMenu(string path)
+        public bool LoadMenu(string path)
         {
             int lineCounter = 0;
             string line;
+            bool readFile = false;
 
             try
             {
@@ -39,6 +40,7 @@ namespace SmartMenuLibrary
                         }
                         lineCounter++;
                     }
+                    readFile = true;
                 }
             }
             catch (Exception e)
@@ -54,6 +56,7 @@ namespace SmartMenuLibrary
             menuDescription = menuList[1];
             menuList.RemoveAt(0);
             menuList.RemoveAt(0);
+            return readFile;
         }
         public void Activate()
         {
@@ -81,8 +84,9 @@ namespace SmartMenuLibrary
                 }
                 if (userInput > 0)
                 {
-
-                    Bindings.Call(menuId[userInput - 1]);
+                        
+                   IBindings bindings = bindings;
+                   bindings.Call(menuId[userInput - 1]);
                     Console.ReadKey();
                 }
             }
