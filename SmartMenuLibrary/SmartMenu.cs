@@ -15,8 +15,9 @@ namespace SmartMenuLibrary
         string menuDescription = string.Empty;
         List<string> menuList = new List<string>();
         List<string> menuId = new List<string>();
+        List<string> errorList = new List<string>();
 
-        public bool LoadMenu(string path)
+        public bool LoadMenu(string path, string errorListpath)
         {
             int lineCounter = 0;
             string line;
@@ -38,6 +39,13 @@ namespace SmartMenuLibrary
                         lineCounter++;
                     }
                     readFile = true;
+                }
+                using (StreamReader sr = new StreamReader(errorListpath))
+                {
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        errorList.Add(line);
+                    }
                 }
             }
             catch (Exception e)
@@ -70,14 +78,14 @@ namespace SmartMenuLibrary
                     Console.WriteLine("  {0}.  {1}", lineCount + 1, menuList[lineCount]);
                 }
 
-                Console.WriteLine("Tast linie nummeret for at tilgå den undermenu.");
-                Console.WriteLine("Tast 0 for at afslutte.");
+                Console.WriteLine(errorList[0]);
+                Console.WriteLine(errorList[1]);
 
 
                 //Ensure input is a valid number.
                 while (!int.TryParse(Console.ReadLine(), out userInput) || userInput > menuId.Count)
                 {
-                    Console.WriteLine("Indtast venligst et gyldigt tal.");
+                    Console.WriteLine(errorList[2]);
                 }
                 if (userInput > 0)
                 {
