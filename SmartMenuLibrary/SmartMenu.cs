@@ -17,6 +17,35 @@ namespace SmartMenuLibrary
         List<string> menuId = new List<string>();
         List<string> errorList = new List<string>();
 
+        public string ChooseLanguage(out string errorFile)
+        {
+            int userInput = 0;
+            string menuChoice;
+
+            Console.WriteLine("Press 1 for English");
+            Console.WriteLine("Tryk 2 for dansk");
+
+            while (!int.TryParse(Console.ReadLine(), out userInput) || userInput > 2 || userInput < 1)
+            {
+                Console.WriteLine("Please enter valid input.");
+                Console.WriteLine("Indtast veligst en gyldig værdi.");
+            }
+
+            if (userInput == 1)
+            {
+                menuChoice = "MenuSpecEn.txt";
+                errorFile = "ErrorlistEn.txt";
+            }
+            else
+            {
+                menuChoice = "MenuSpecDk.txt";
+                errorFile = "ErrorlistDk.txt";
+            }
+
+            return menuChoice;
+
+        }
+
         public bool LoadMenu(string path, string errorListpath)
         {
             int lineCounter = 0;
