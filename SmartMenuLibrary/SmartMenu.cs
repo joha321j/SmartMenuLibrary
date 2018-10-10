@@ -17,7 +17,7 @@ namespace SmartMenuLibrary
         List<string> menuId = new List<string>();
         List<string> errorList = new List<string>();
 
-        public string ChooseLanguage(out string errorFile)
+        public string ChooseLanguage(out string errorFile, out string bindingsPath)
         {
             int userInput = 0;
             string menuChoice;
@@ -35,11 +35,13 @@ namespace SmartMenuLibrary
             {
                 menuChoice = "MenuSpecEn.txt";
                 errorFile = "ErrorlistEn.txt";
+                bindingsPath = "BindingsEn.txt";
             }
             else
             {
                 menuChoice = "MenuSpecDk.txt";
                 errorFile = "ErrorlistDk.txt";
+                bindingsPath = "BindingsDk.txt";
             }
 
             return menuChoice;
@@ -107,14 +109,10 @@ namespace SmartMenuLibrary
                     Console.WriteLine("  {0}.  {1}", lineCount + 1, menuList[lineCount]);
                 }
 
-                Console.WriteLine(errorList[0]);
-                Console.WriteLine(errorList[1]);
-
-
                 //Ensure input is a valid number.
                 while (!int.TryParse(Console.ReadLine(), out userInput) || userInput > menuId.Count)
                 {
-                    Console.WriteLine(errorList[2]);
+                    Console.WriteLine(errorList[0]);
                 }
                 if (userInput > 0)
                 {
